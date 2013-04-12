@@ -1,5 +1,8 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
+  <prerequisites>
+    <maven>2.2.1</maven>
+  </prerequisites>
 
   <groupId>cchantep</groupId>
   <artifactId>maven-profiledep-plugin</artifactId>
