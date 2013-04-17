@@ -7,10 +7,9 @@
   <groupId>cchantep</groupId>
   <artifactId>profiledep-maven-plugin</artifactId>
   <version>1.0</version>
-  <packaging>maven-plugin</packaging>
 
-  <name>Profile dependencies plugin</name>
-  <description>Dependency management from profiles (.m2/settings.xml)</description>
+  <name>Profile build plugin</name>
+  <description>Build (dependencies) management from profiles (.m2/settings.xml)</description>
   <url>http://github.com/cchantep/maven-profiledep-plugin</url>
 
   <licenses>
@@ -57,21 +56,38 @@
           </compilerArguments>
 	</configuration>
       </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.plexus</groupId>
+        <artifactId>plexus-component-metadata</artifactId>
+        <version>1.5.5</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>generate-metadata</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 
   <reporting>
     <plugins>
+      <!--
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
 	<artifactId>maven-plugin-plugin</artifactId>
         <version>3.2</version>
       </plugin>
+      -->
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>2.9</version>
       </plugin>
+
       <plugin>       
 	<groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-project-info-reports-plugin</artifactId>
