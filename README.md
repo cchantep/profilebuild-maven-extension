@@ -58,11 +58,6 @@ As using this extension a Maven project can produce multiple distinct artifact, 
 
 This extension will enforce failure on missing classifier.
 
-If you don't want to define classifier inside your POM, you can specify it using (with descending priority):
-
-1. User property: `mvn -Dprofilebuild.classifier=myclassifier ...`
-2. In profile properties (e.g. in `~/.m2/settings.xml`). Take care that only one of active profile is definied the `profilebuild.classifier` property.
-
 ## Documentation
 
 More documentation can be found [here](http://cchantep.github.io/maven-profiledep-plugin/).

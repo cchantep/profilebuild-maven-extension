@@ -130,8 +130,7 @@ public class ProfileBuildLifecycleParticipant
                                remoteRepositories,
                                localRepository);
 
-        final String classifier = 
-            getClassifier(session, util, project, packaging, pkgConfig);
+        final String classifier = getClassifier(pkgConfig);
 
         if (classifier == null) {
             throw new IllegalArgumentException("No packaging classifier for profile build");
@@ -139,10 +138,6 @@ public class ProfileBuildLifecycleParticipant
         } // end of if
 
         // ---
-
-        log.debug("classifier = " + classifier);
-
-        updateClassifier(packaging, pkgConfig, classifier);
 
         final Set<Artifact> profileArtifacts = util.getProfileArtifacts(this);
 
@@ -195,35 +190,14 @@ public class ProfileBuildLifecycleParticipant
     /**
      * Returns classifier.
      */
-    private String getClassifier(final MavenSession session,
-                                 final ProfileUtility util,
-                                 final MavenProject project,
-                                 final Plugin packaging,
-                                 final Xpp3Dom pkgConfig) {
-
+    private String getClassifier(final Xpp3Dom pkgConfig) {
         final Xpp3Dom classifier = pkgConfig.getChild("classifier");
         
-        if (classifier != null) {
-            return classifier.getValue();
+        if (classifier == null) {
+            return null;
         } // end of if
 
-        // ---
-
-        final String userClassifier = session.
-            getUserProperties().getProperty("profilebuild.classifier");
-
-        final List<String> profileClassifier = util.
-            getProfileProperty("profilebuild.classifier");
-
-        if (profileClassifier.size() > 1) {
-            log.warn("Multiple active profile defining property: profilebuild.classifier");
-        } // end of if
-
-        return (userClassifier != null)
-            ? userClassifier
-            : (!profileClassifier.isEmpty())
-            ? profileClassifier.get(0) : null;
-
+        return classifier.getValue();
     } // end of getClassifier
 
     /**
