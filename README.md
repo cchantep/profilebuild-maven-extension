@@ -1,16 +1,20 @@
 # Maven Profile Build Extension
 
-This extension allows to build project according profile dependencies.
+This extension allows to build project according profile dependencies, 
+having a single POM file but using [Maven Settings](http://maven.apache.org/settings.html).
 
 ## Usage
 
-To integration in your POM:
+### Dependencies
+
+To define extra dependencies in Maven profiles, 
+you can update your POM as following:
 
 ```xml
 <project>
   ...
   <properties>
-    <profiledep.prefix>my.deps.</profiledep.prefix>
+    <profilebuild.prefix>my.deps.</profilebuild.prefix>
     ...
   </properties>
 
@@ -30,8 +34,7 @@ To integration in your POM:
 ```
 
 For previous sample POM, profile properties should be prefixed by `my.deps.`
-
-So in Maven profile (`.m2/settings.xml`), you can defined properties in following way:
+So in Maven Settings (`.m2/settings.xml`), you should have properties like:
 
 ```xml
 <settings>
@@ -48,9 +51,71 @@ So in Maven profile (`.m2/settings.xml`), you can defined properties in followin
 </settings>
 ```
 
-These two kinds of profile properties define space-separated values, profile artifacts for `my.deps.` prefixed one (here `my.deps.xxx`), EAR module specifications for for `my.mods.` one (here `my.mods.xxx`).
+Here only one dependency is defined, `groupId:artifactId:version:packaging:scope`. You can define several dependencies in a single property value by separating them with a space.
 
-For EAR module injection, `moduleType` part of module specification is the type of included module, like `ejb`, `java` or `web`. The `entryName` is used to customized the module filename. When module is `web` one, specification is ended by context path (here `/`).
+Each of these dependencies should match one of following format:
+* groupId:artifactId:version:packaging
+* groupId:artifactId:version:packaging:scope
+
+Such dependencies can be checked as other ones using `mvn dependency:tree`.
+
+### EAR modules
+
+EAR project case is also taken in account, to be able to define extra 
+EAR modules in settings profiles.
+
+Modules are defined in a similar way to profile dependencies supported 
+by this extension, so your POM should looks like:
+
+```xml
+<project>
+  ...
+  <properties>
+    <profilebuild.earPrefix>my.mods.</profilebuild.earPrefix>
+    ...
+  </properties>
+
+  <build>
+    <extensions>
+      <extension>
+	<groupId>cchantep</groupId>
+	<artifactId>profiledep-maven-plugin</artifactId>
+	<version>1.0</version>
+      </extension>
+
+      ...
+    </extensions>
+    ...
+  </build>
+</project>
+```
+
+Profiles modules should then be defined in your Maven Settings like:
+
+```xml
+<settings>
+  ...
+  <profiles>
+    <profile>
+      <id>my-activated-profile</id>
+      <properties>
+        <my.mods.xxx>groupId:artifactId:moduleType:moduleUri<!-- ... --></my.mods.xxx>
+      </properties>
+    </profile>
+  </profiles>
+  ...
+</settings>
+```
+
+Here only one module is defined, `groupId:artifactId:moduleType:moduleUri`. You can define several EAR modules in a single property value by separating them with a space.
+
+Each module definition should match one of following formats:
+* groupId:artifactId:moduleType:moduleUri
+* (only if `moduleType` is `web`) groupId:artifactId:moduleType:moduleUri:contextRoot
+
+The `moduleType` is not packaging, but EAR module type: ejb, web.
+
+Part `moduleUri` is the one used as `<uri>...</uri>` in EAR XML descriptor.
 
 ## Classifier
 
@@ -61,3 +126,5 @@ This extension will enforce failure on missing classifier.
 ## Documentation
 
 More documentation can be found [here](http://cchantep.github.io/maven-profiledep-plugin/).
+
+Maven document for previous release (for Maven 2.x) is still only at [there](http://cchantep.github.io/maven-profiledep-plugin/1.0/).

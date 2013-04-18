@@ -3,24 +3,14 @@
  ------
  Cedric Chantepie
  ------
- 2012-08-27
+ 2013-04-18
  ------
 
-Profile Dependencies Plugin
+Maven Profile Build Extension
 
-  Dependency management from profiles (<<<.m2/settings.xml>>>). 
-
-  With generic EAR or WAR, allow to inject some context/profile dependencies, these one included in packaging, and so detected and usable are runtime by common/core code; e.g. : injecting struts 2 jar as dependency into WAR, so that actions and other things from jar would be accessible with deployed WAR.
-
-* Goals Overview
-
-  * {{{inject-mojo.html}profiledep:inject}} Injects dependencies from activated profiles.
-
-  * {{{inject-ear-module-mojo.html}profiledep:inject-ear-module}} Injects EAR modules from activated profiles.
-
-  []
+  This extension allows to build project according profile dependencies, having a single POM file but using {{{http://maven.apache.org/settings.html}Maven Settings}}.
 
 * Usage
 
-  General instructions on how to use the Profile Dependencies Plugin can be found on the {{{usage.html}usage page}}.
+  General instructions on how to use the Profile Build Extension can be found on the {{{http://cchantep.github.io/maven-profiledep-plugin/}project page}}.
 
