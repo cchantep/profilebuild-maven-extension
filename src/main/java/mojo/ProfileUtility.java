@@ -13,7 +13,6 @@ import org.apache.maven.project.MavenProject;
 
 import org.apache.maven.artifact.Artifact;
 
-import org.apache.maven.artifact.repository.ArtifactRepository;
 
 import org.apache.maven.repository.RepositorySystem;
 
@@ -49,16 +48,6 @@ public final class ProfileUtility {
      */
     private final RepositorySystem repoSys;
 
-    /**
-     * List of Remote Repositories used by the resolver.
-     */
-    private final List<ArtifactRepository> remoteRepositories;
-
-    /**
-     * Location of the local repository.
-     */
-    private final ArtifactRepository localRepository;
-
     // --- Constructors ---
 
     /**
@@ -67,16 +56,12 @@ public final class ProfileUtility {
     public ProfileUtility(final Logger log, 
                           final MavenProject project, 
                           final String prefix, 
-                          final RepositorySystem repoSys, 
-                          final List<ArtifactRepository> remoteRepositories, 
-                          final ArtifactRepository localRepository) {
+                          final RepositorySystem repoSys) {
 
         this.log = log;
         this.project = project;
         this.prefix = prefix;
         this.repoSys = repoSys;
-        this.remoteRepositories = remoteRepositories;
-        this.localRepository = localRepository;
     } // end of <init>
 
     // ---
@@ -180,7 +165,7 @@ public final class ProfileUtility {
                 
 		// ---
                 
-		value = props.getProperty((String) key);
+		value = props.getProperty(key);
                 
 		log.debug("Find matching property: " + 
                           key + " = " + value);
