@@ -22,7 +22,7 @@ you can update your POM as following:
     <extensions>
       <extension>
 	<groupId>cchantep</groupId>
-	<artifactId>profiledep-maven-plugin</artifactId>
+	<artifactId>profilebuild-maven-extension</artifactId>
 	<version>1.0</version>
       </extension>
 
@@ -79,7 +79,7 @@ by this extension, so your POM should looks like:
     <extensions>
       <extension>
 	<groupId>cchantep</groupId>
-	<artifactId>profiledep-maven-plugin</artifactId>
+	<artifactId>profilebuild-maven-extension</artifactId>
 	<version>1.0</version>
       </extension>
 
@@ -125,6 +125,6 @@ This extension will enforce failure on missing classifier.
 
 ## Documentation
 
-More documentation can be found [here](http://cchantep.github.io/maven-profiledep-plugin/).
+More documentation can be found [here](http://cchantep.github.io/profilebuild-maven-extension/).
 
-Maven document for previous release (for Maven 2.x) is still only at [there](http://cchantep.github.io/maven-profiledep-plugin/1.0/).
+Maven document for previous release (for Maven 2.x) is still only at [there](http://cchantep.github.io/profilebuild-maven-extension/1.0/).

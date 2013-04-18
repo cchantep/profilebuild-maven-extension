@@ -5,12 +5,12 @@
   </prerequisites>
 
   <groupId>cchantep</groupId>
-  <artifactId>profiledep-maven-plugin</artifactId>
+  <artifactId>profilebuild-maven-extension</artifactId>
   <version>1.1</version>
 
   <name>Profile build plugin</name>
   <description>Build (dependencies) management from profiles (.m2/settings.xml)</description>
-  <url>http://github.com/cchantep/maven-profiledep-plugin</url>
+  <url>https://github.com/cchantep/profilebuild-maven-extension/</url>
 
   <licenses>
     <license>

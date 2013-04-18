@@ -12,5 +12,5 @@ Maven Profile Build Extension
 
 * Usage
 
-  General instructions on how to use the Profile Build Extension can be found on the {{{http://cchantep.github.io/maven-profiledep-plugin/}project page}}.
+  General instructions on how to use the Profile Build Extension can be found on the {{{http://cchantep.github.io/profilebuild-maven-extension/}project page}}.
 

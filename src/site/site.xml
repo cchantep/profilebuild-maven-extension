@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="maven-profiledep-plugin">
+<project name="profilebuild-maven-extension">
   <body>
-    <links>
-      <item name="Project at GitHub" href="http://cchantep.github.io/maven-profiledep-plugin/" />
-    </links>
-
-
     <menu name="Previous release">
       <item name="1.0 (Maven 2.x)" href="./1.0/index.html" />
     </menu>
