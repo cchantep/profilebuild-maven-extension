@@ -8,11 +8,11 @@ having a single POM file but using [Maven Settings](http://maven.apache.org/sett
 This extension can be resolved using following repository:
 
 ```xml
-<repository>
+<pluginRepository>
   <id>applicius-releases</id>
   <name>Applicius Maven2 Releases Repository</name>
   <url>https://raw.github.com/applicius/mvn-repo/master/releases/</url>
-</repository>
+</pluginRepository>
 ```
 
 ### Dependencies
