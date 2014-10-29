@@ -141,7 +141,7 @@ public class ProfileBuildLifecycleParticipant
                                prefix,
                                this.repoSys);
 
-        final String classifier = getClassifier(pkgConfig);
+        final String classifier = getClassifier(pkgConfig, project);
 
         if (classifier == null) {
             throw new IllegalArgumentException("No packaging classifier for profile build");
@@ -368,13 +368,15 @@ public class ProfileBuildLifecycleParticipant
     /**
      * Returns classifier.
      */
-    private String getClassifier(final Xpp3Dom pkgConfig) {
+    private String getClassifier(final Xpp3Dom pkgConfig,
+                                 final MavenProject project) {
+
         final Xpp3Dom classifier = pkgConfig.getChild("classifier");
         
-        if (classifier == null) {
-            return null;
+        if (classifier != null) {
+            return classifier.getValue();
         } // end of if
 
-        return classifier.getValue();
+        return project.getProperties().getProperty("profilebuild.classifier");
     } // end of getClassifier
 } // end of class ProfileBuildLifecycleParticipant

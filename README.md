@@ -33,7 +33,7 @@ you can update your POM as following:
       <extension>
 	<groupId>cchantep</groupId>
 	<artifactId>profilebuild-maven-extension</artifactId>
-	<version>1.1</version>
+	<version>1.2</version>
       </extension>
 
       ...
@@ -90,7 +90,7 @@ by this extension, so your POM should looks like:
       <extension>
 	<groupId>cchantep</groupId>
 	<artifactId>profilebuild-maven-extension</artifactId>
-	<version>1.0</version>
+	<version>1.2</version>
       </extension>
 
       ...
@@ -132,6 +132,8 @@ Part `moduleUri` is the one used as `<uri>...</uri>` in EAR XML descriptor.
 As using this extension a Maven project can produce multiple distinct artifact, it's required to have a defined `classifier`.
 
 This extension will enforce failure on missing classifier.
+
+> Project property `profilebuild.classifier` can be used.
 
 ## Documentation
 

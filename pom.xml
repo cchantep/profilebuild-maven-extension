@@ -1,12 +1,12 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
   <prerequisites>
-    <maven>3.0.4</maven>
+    <maven>3.2.3</maven>
   </prerequisites>
 
   <groupId>cchantep</groupId>
   <artifactId>profilebuild-maven-extension</artifactId>
-  <version>1.1</version>
+  <version>1.2</version>
 
   <name>Profile build plugin</name>
   <description>Build (dependencies) management from profiles (.m2/settings.xml)</description>
@@ -31,13 +31,13 @@
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-core</artifactId>
-      <version>3.0.4</version>
+      <version>3.2.3</version>
     </dependency>
 
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-plugin-api</artifactId>
-      <version>3.0.4</version>
+      <version>3.2.3</version>
     </dependency>
   </dependencies>
 
@@ -48,8 +48,8 @@
 	<artifactId>maven-compiler-plugin</artifactId>
         <version>3.1</version>
 	<configuration>
-	  <source>1.7</source>
-	  <target>1.7</target>
+	  <source>1.6</source>
+	  <target>1.6</target>
           <compilerArguments>
             <Xlint:deprecation />
             <Xlint:unchecked />
