@@ -33,7 +33,7 @@ you can update your POM as following:
       <extension>
 	<groupId>cchantep</groupId>
 	<artifactId>profilebuild-maven-extension</artifactId>
-	<version>1.0</version>
+	<version>1.1</version>
       </extension>
 
       ...
