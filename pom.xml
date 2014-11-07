@@ -6,7 +6,7 @@
 
   <groupId>cchantep</groupId>
   <artifactId>profilebuild-maven-extension</artifactId>
-  <version>1.2</version>
+  <version>1.2a</version>
 
   <name>Profile build plugin</name>
   <description>Build (dependencies) management from profiles (.m2/settings.xml)</description>

@@ -73,7 +73,8 @@ public class ProfileBuildLifecycleParticipant
         final Plugin packaging = getPackagingPlugin(project);
 
         if (packaging == null) {
-            throw new IllegalArgumentException("Unsupported packaging");
+            log.warn("Skip unsupported packaging: " + project);
+            return;
         } // end of if
 
         final String prefix = project.
